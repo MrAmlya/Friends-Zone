@@ -1,0 +1,48 @@
+{% extends 'blog/base.html' %}
+
+{% block containt %}	
+
+			
+    {% for post in posts %}
+	<div class="card ">
+		<div class="card-header">
+		  <div class="row align-items-center">
+			<div class="col-auto">
+			  <!-- Avatar -->
+			  <div class="avatar-parent-child">
+				<div class="icon bg-gradient-info text-white rounded-circle icon-shape">
+					<i class="far fa-award"></i>
+				</div>
+				<span class="avatar-child avatar-badge bg-success"></span>
+			  </div>
+			</div>
+			<div class="col ml-md-n2">
+			  <a href="#!" class="d-block h6 mb-0">{{ post.author }}</a>
+			<a href="{% url 'post_detail' pk=post.pk %}"><small class="d-block text-muted"> {{ post.title }}</small>
+			</a></div>
+		  </div>
+		  <br>
+			<img src="{{ post.hotel_Main_Img.url }}" alt="" class=""  style=width:100%;>
+			<button type="button" class="btn btn-sm px-0 font-weight-bold btn-link text-primary btn-icon">
+				<div class="icon bg-gradient-primary text-white rounded-circle icon-shape hover-rotate-360">
+					<i class="far fa-heart"></i>
+				</div>
+			  </button>
+			  <button type="button" class="btn btn-sm px-0 font-weight-bold btn-link text-primary btn-icon">
+				
+				<div class="icon bg-gradient-primary text-white rounded-circle icon-shape hover-rotate-360">
+					<i class="far fa-comment"></i>
+				</div>
+			  </button>
+			<p>{{ post.text|linebreaksbr }}</p>
+			<div class="date">
+                <p>published: {{ post.published_date }}</p>
+            </div>
+	
+		</div>
+	  </div>
+	
+	{% endfor %}
+
+
+{% endblock %}

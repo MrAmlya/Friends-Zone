@@ -1,0 +1,40 @@
+{% extends 'blog/base.html' %}
+{% block containt %}
+<div class="card ">
+    <div class="card-header">
+      <div class="row align-items-center">
+        <div class="col-auto">
+          <!-- Avatar -->
+          <div class="avatar-parent-child">
+            <div class="icon bg-gradient-info text-white rounded-circle icon-shape">
+                <i class="far fa-award"></i>
+            </div>
+            <span class="avatar-child avatar-badge bg-success"></span>
+          </div>
+        </div>
+        <div class="col ml-md-n2">
+          <a href="#!" class="d-block h6 mb-0">{{ user.username }}</a>
+        <a href=""><small class="d-block text-muted">{{user.first_name}}</small>
+        </a></div>
+      </div>
+      <br>
+<h4>Full name: {{user.first_name}} {{user.last_name}}</h4>
+<h4>Username: {{user.username}}</h4>
+
+    </div>
+  </div>
+    <div class="masonry-container">
+        <div class="row masonry mt-4">
+            {% for post in posts %}
+                {% if request.user == post.author %}
+                <div class="masonry-item col-lg-4 branding">
+                   <div>
+                        <img src="{{ post.hotel_Main_Img.url }}" alt="" class="bd-placeholder-img img-fluid rounded" width="600" height="800"  preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 600x800"><title>Placeholder</title><rect fill="" width="100%" height="100%"/><text fill="" dy=".3em" x="50%" y="50%" ><br>
+                    </div>
+                    <br>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
