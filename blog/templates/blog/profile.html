@@ -24,7 +24,9 @@
     </div>
   </div>
     <div class="masonry-container">
+      <center><h2>Post Images</h2></center>
         <div class="row masonry mt-4">
+          
             {% for post in posts %}
                 {% if request.user == post.author %}
                 <div class="masonry-item col-lg-4 branding">

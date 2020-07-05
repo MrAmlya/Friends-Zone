@@ -5,16 +5,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="Purpose Application UI is the following chapter we've finished in order to create a complete and robust solution next to the already known Purpose Website UI.">
-	<meta name="author" content="Webpixels">
+
 	<title>Friend's Zone</title>
 	<!-- Favicon -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-	  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-	  crossorigin="anonymous"></script>
+
 	{% load static %}
 	<link href="{% static 'img/brand/favicon.png' %}" rel="icon"  type="image/png">
 	<!-- Font Awesome 5 -->
@@ -24,24 +18,10 @@
 	
 	<link href="{% static 'css/docs.css' %}" id="stylesheet" rel="stylesheet" >
 	<link href="{% static 'css/purpose.css' %}" id="stylesheet" rel="stylesheet" >
-	<style> 
-		h1 { 
-			color:Green; 
-		} 
-		div.scroll { 
-			margin:0px; 
-			padding:0px; 
-			background-color: white; 
-			width: 100%; 
-			height: 800px; 
-			overflow-x: hidden; 
-			overflow-x: auto; 
-			text-align:justify; 
-		} 
-	</style>
+
   </head>
 
-<body class="application application-offset">
+<body class="application application-offset sidenav-pinned ready">
   <!-- Chat modal -->
   <!-- Customizer modal -->
   <div class="modal fade fixed-right" id="modal-chat" tabindex="-1" role="dialog" aria-hidden="true">
@@ -59,16 +39,16 @@
         <div class="scrollbar-inner">
           <!-- Chat contacts -->
           <div class="list-group list-group-flush">
-            {% for people in blog %}
+            {% for post in posts %}
 					<a href="#" class="list-group-item list-group-item-action">
-                      <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="2 hrs ago">
+                      <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
                         <div>
-                          <span class="avatar bg-primary text-white rounded-circle">AM</span>
+                          <span class="avatar bg-primary text-white rounded-circle">Pic</span>
                         </div>
                         <div class="flex-fill ml-3">
-                          <div class="h6 text-sm mb-0">{{admin.name}} <small class="float-right text-muted">2 hrs ago</small></div>
+                          <div class="h6 text-sm mb-0"> <small class="float-right text-muted"></small></div>
                           <p class="text-sm lh-140 mb-0">
-                            Some quick example text to build on the card title.
+                            {{post.author}}
                           </p>
                         </div>
                       </div>
@@ -91,7 +71,7 @@
     <!-- Content -->
     <div class="main-content position-relative">
       <!-- Main nav -->
-      <nav class="navbar navbar-main navbar-expand-lg navbar-default navbar-header navbar-fixed-top" id="navbar-main">
+      <nav class="navbar navbar-main navbar-expand-lg navbar-dark navbar-header bg-info navbar-fixed-top " id="navbar-main">
         <div class="container-fluid">
           <!-- Brand + Toggler (for mobile devices) -->
           
@@ -204,8 +184,11 @@
               <li class="border-top opacity-2 my-2"></li>
               <!-- Home  -->
               <li class="nav-item ">
-                <a class="nav-link pl-lg-0" href="{% url 'post_list' %}">
-                  <h2 class="h3 d-inline-block font-weight-600 mb-0 text-black ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="nav-link pl-lg-0" href="{% url 'post_list' %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <span class="avatar rounded-circle">
+                    <img alt="Image placeholder" src="{% static 'img/brand/logo.png' %}">
+                  </span>
+                  <h2 class="h3 d-inline-block font-weight-600 mb-0 text-black ">
 					   Friend's Zone</h2>
                 </a>
               </li>
@@ -214,6 +197,9 @@
               
             
             </ul><!-- Right menu -->
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <ul class="navbar-nav ml-lg-auto align-items-center d-none d-lg-flex">
               
               <li class="nav-item">
@@ -230,16 +216,16 @@
                   </div>
                   <div class="list-group list-group-flush">
                     
-					{% for people in blog %}
+					{% for post in posts %}
 					<a href="#" class="list-group-item list-group-item-action">
-                      <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="2 hrs ago">
+                      <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="Published Time">
                         <div>
                           <span class="avatar bg-primary text-white rounded-circle">AM</span>
                         </div>
                         <div class="flex-fill ml-3">
-                          <div class="h6 text-sm mb-0">{{admin.name}} <small class="float-right text-muted">2 hrs ago</small></div>
+                          <div class="h6 text-sm mb-0">{{post.author}} <small class="float-right text-muted">{{ post.published_date }}</small></div>
                           <p class="text-sm lh-140 mb-0">
-                            Some quick example text to build on the card title.
+                            Added {{post.title}}
                           </p>
                         </div>
                       </div>
@@ -293,12 +279,16 @@
                     <span>Login</span>
 				  </a>
                 {% endif %}
+                
                 </div>
               </li>
+              &nbsp;&nbsp;
             </ul>
           </div>
         </div>
       </nav>
+      <br><br>
+      <br>
       <!-- Omnisearch -->
       <div id="omnisearch" class="omnisearch">
         <div class="container">
@@ -341,32 +331,67 @@
         </div>
         <div class="row">
           <div class="col-lg-3 order-lg-2">
-            
-
+            <center><h2>User Profile</h2></center>
+            <div class="card ">
+              <div class="card-header">
+                <div class="row align-items-center">
+                  <div class="col-auto">
+                    <!-- Avatar -->
+                    <div class="avatar-parent-child">
+                      <div class="icon bg-gradient-info text-white rounded-circle icon-shape">
+                          <i class="far fa-award"></i>
+                      </div>
+                      <span class="avatar-child avatar-badge bg-success"></span>
+                    </div>
+                  </div>
+                  <div class="col ml-md-n2">
+                    <a href="#!" class="d-block h6 mb-0">{{ user.username }}</a>
+                  <a href=""><small class="d-block text-muted">{{user.first_name}}</small>
+                  </a></div>
+                </div>
+                <br>
+          <h4>Full name: {{user.first_name}} {{user.last_name}}</h4>
+          <h4>Username: {{user.username}}</h4>
+          
+              </div>
+            </div>
+            <div class="masonry-container">
+              <button type="button" class="btn btn-animated btn-success btn-animated-x"><a href="{% url 'post_new' %}" class="text-white">
+                <span class="btn-inner--visible">  New Post</span>
+                <span class="btn-inner--hidden">
+                    <i class="far fa-arrow-right"></i>
+                </span></a>
+            </button>
+                
+            </div>
 
           </div>
-          <div class="col-lg-2 order-lg-1">
+          <div class="col-lg-1 order-lg-1">
             &nbsp;
           </div>
-          <div class="col-lg-6 order-lg-1 " >
-            {% block containt %}
+          <div class="col-lg-7 order-lg-1 " >
+            <center><h2>Feed</h2></center>
+              {% block containt %}
+            
 				
 				
-            {% endblock %}
+              {% endblock %}
+              
+  
+              
             
 
-            
           </div>
         </div>
       </div>
+      <hr>
       <!-- Footer -->
-      <div class="footer pt-5 pb-4 footer-light" id="footer-main">
+      <div class="footer pt-3 pb-4 footer-light" id="footer-main">
         <div class="row text-center text-sm-left align-items-sm-center">
           <div class="col-sm-6">
-            <p class="text-sm mb-0">&copy; <script>
+            <p class="text-sm mb-0"> &copy; <script>
               document.write(new Date().getFullYear())
-            </script> <a href="https://amolbhadane.ml" class="h6 text-sm" target="_blank">MrAmlya</a>. All rights reserved.</p>
-            <p>made with <i class="fa fa-heart heart"></i> by MrAmlya</p>
+            </script> <a href="https://amolbhadane.ml" class="h6 text-sm" target="_blank">MrAmlya</a>. All rights reserved. </p>
           </div>
           <div class="col-sm-6 mb-md-0">
             <ul class="nav justify-content-center justify-content-md-end">
@@ -389,6 +414,8 @@
     </div>
   </div>
   <!-- Scripts -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/mr_IN/sdk.js#xfbml=1&version=v7.0" nonce="GlmrG8HO"></script>
   <!-- Core JS - includes jquery, bootstrap, popper, in-view and sticky-kit -->
   <script src="{% static 'js/purpose.core.js' %}"></script>
   <script src="{% static 'js/DateTimeShortcuts.js' %}"></script>

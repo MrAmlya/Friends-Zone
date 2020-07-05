@@ -6,8 +6,12 @@
     <form method="POST" class="post-form">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-default save">Login</button>
-
+        <button type="submit" class="btn btn-animated btn-success btn-animated-x">
+            <span class="btn-inner--visible"> Login</span>
+            <span class="btn-inner--hidden">
+                <i class="far fa-arrow-right"></i>
+            </span>
+        </button>
     </form>
     <br><br><br>
 {% endblock %}
